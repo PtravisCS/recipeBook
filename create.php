@@ -50,9 +50,9 @@
 <html lang="en">
 <head>
     <title>Menu Creator and Recipe System</title>
-    <link   href="../css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/mss.css">
+    <link   href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/mss.css">
             
 </head>
 
@@ -120,7 +120,7 @@
 				
     </div> <!-- /container -->
 
-    <script src="../js/nicEdit.js" type="text/javascript"></script>
+    <script src="./js/nicEdit.js" type="text/javascript"></script>
     <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
   </body>
