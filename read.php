@@ -24,9 +24,9 @@
 <html>
 
   <head>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/sharelinks.css" rel="stylesheet">
-    <script src="../js/bootstrap.min.js"></script>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/sharelinks.css" rel="stylesheet">
+    <script src="./js/bootstrap.min.js"></script>
     <title>Menu Creator and Recipe System</title>
   </head>
 

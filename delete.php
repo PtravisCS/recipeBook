@@ -25,8 +25,8 @@
 <html lang="en">
 <head>
     <title>Menu Creator and Recipe System</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/bootstrap.min.js"></script>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.min.js"></script>
 </head>
 
 <body>
