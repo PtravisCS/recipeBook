@@ -55,7 +55,7 @@
               $pdo = Database::connect();
 
               if (!empty($query)) {
-                $sql = "SELECT * FROM recipes WHERE name LIKE '%" . $query . "%' OR tags LIKE '%" . $query . "%'";
+                $sql = "SELECT * FROM recipes WHERE name LIKE '%" . $query . "%' OR tags LIKE '%" . $query . "%' ORDER BY name ASC";
               } else {
                 $sql = "SELECT * FROM recipes ORDER BY name ASC";
               }

@@ -82,7 +82,7 @@
     
     			<div class="span10 offset1">
     				<div class="row">
-		    			<h3>Update a Customer</h3>
+		    			<h3>Update Recipe</h3>
 		    		</div>
     		
 	    			<form class="form-horizontal" action="update.php?id=<?php echo $id?>" method="post">
@@ -135,7 +135,10 @@
 
               <div class="form-actions">
                 <button type="submit" class="btn btn-success">Update</button>
-                <a class="btn" href="recipeMain.php">Back</a>
+                
+                <?php
+                  echo "<a class='btn btn-danger' href='javascript:history.go(-1)'>Cancel</a>";
+                ?>
               </div>
 					</form>
 				</div>
