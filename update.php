@@ -1,5 +1,21 @@
 <?php 
-	
+
+  session_start();
+
+  //Create session array storing current session history.
+
+  if (isset($_SESSION['history'])) {
+
+    $history = $_SESSION['history'];
+
+    array_push($history, 'update.php');
+
+  } else {
+
+    $_SESSION['history'] = array('update.php');
+
+  }
+
 	require 'recipeDatabase.php';
 
 	$id = null;
@@ -50,7 +66,30 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($name,$ingredients,$directions,$submitter,$tags,$id));
 			Database::disconnect();
-			header("Location: recipeMain.php");
+
+      if (isset($_SESSION['history'])) {
+
+        $history = $_SESSION['history'];
+
+        if (count($history) > 1) {
+
+          $previousPage = $history[count($history) - 2];
+
+        } else {
+
+          $previousPage = "recipeMain.php";
+
+        }
+
+        header("Location: $previousPage");
+
+      
+      } else {
+
+        header("Location: recipeMain.php");
+
+      } 
+
 		}
 	} else {
 		$pdo = Database::connect();
