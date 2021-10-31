@@ -4,25 +4,20 @@
 
   //Create session array storing current session history.
 
-  echo "" . !empty($_SESSION['history']) . "<br/>";
-
-  if ( !empty($_SESSION['history'])) {
+  if ( !empty($_SESSION['history']) && empty($_POST)) {
 
     if ( !empty($_GET['id'])) {
       $id = $_REQUEST['id'];
-    
 
       $history = $_SESSION['history'];
-      print_r($history);
 
-      array_push($history, 'recipeMain.php');
+      $history[] = "update.php?id=$id";
 
       $_SESSION['history'] = $history; 
 
     } else {
 
       $history = $_SESSION['history'];
-      print_r($history);
 
       array_push($history, 'recipeMain.php');
 
@@ -30,13 +25,20 @@
 
     }
 
+  } else if (!empty($_SESSION['history'])) {
+
+    $history = $_SESSION['history'];
+
   } else {
 
     $_SESSION['history'] = array('recipeMain.php');
     $history = $_SESSION['history'];
-    print_r($history);
 
   }
+
+  $previousPage = $history[count($history) - 2];
+
+  print_r($history);
 
 	require 'recipeDatabase.php';
 
@@ -93,7 +95,7 @@
 
       if (count($history) > 1) {
 
-        $previousPage = $history[count($history) - 2];
+        $previousPage = "Location: https://ptserv.ddns.net/recipe/" . $history[count($history) - 2];
 
       } else {
 
@@ -101,7 +103,7 @@
 
       }
 
-      header("Location: $previousPage");
+      header($previousPage);
 
 		}
 	} else {
