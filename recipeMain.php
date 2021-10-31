@@ -24,7 +24,7 @@
 
   }
 
-  
+  echo '<a href="clearSession.php">Clear Session</a><br/>';  
 
 ?>
 

@@ -3,7 +3,7 @@
   session_start();
 
   echo "" . !empty($_SESSION['history']) . "<br/>";
-  if ( !empty($_SESSION['history'])) {
+  if ( !empty($_SESSION['history']) ) {
 
     if ( !empty($_GET['id'])) {
       $id = $_REQUEST['id'];
