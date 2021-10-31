@@ -1,4 +1,21 @@
 <?php 
+
+  session_start();
+
+  //Create session array storing current session history.
+
+  if (isset($_SESSION['history'])) {
+
+    $history = $_SESSION['history'];
+
+    array_push($history, 'read.php');
+
+  } else {
+
+    $_SESSION['history'] = array('read.php');
+
+  }
+
 	require 'recipeDatabase.php';
 	$id = null;
 	if ( !empty($_GET['id'])) {
