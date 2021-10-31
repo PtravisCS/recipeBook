@@ -4,15 +4,37 @@
 
   //Create session array storing current session history.
 
-  if (isset($_SESSION['history'])) {
+  echo "" . !empty($_SESSION['history']) . "<br/>";
 
-    $history = $_SESSION['history'];
+  if ( !empty($_SESSION['history'])) {
 
-    array_push($history, 'update.php');
+    if ( !empty($_GET['id'])) {
+      $id = $_REQUEST['id'];
+    
+
+      $history = $_SESSION['history'];
+      print_r($history);
+
+      array_push($history, 'recipeMain.php');
+
+      $_SESSION['history'] = $history; 
+
+    } else {
+
+      $history = $_SESSION['history'];
+      print_r($history);
+
+      array_push($history, 'recipeMain.php');
+
+      $_SESSION['history'] = $history; 
+
+    }
 
   } else {
 
-    $_SESSION['history'] = array('update.php');
+    $_SESSION['history'] = array('recipeMain.php');
+    $history = $_SESSION['history'];
+    print_r($history);
 
   }
 
@@ -67,28 +89,19 @@
 			$q->execute(array($name,$ingredients,$directions,$submitter,$tags,$id));
 			Database::disconnect();
 
-      if (isset($_SESSION['history'])) {
+      $history = $_SESSION['history'];
 
-        $history = $_SESSION['history'];
+      if (count($history) > 1) {
 
-        if (count($history) > 1) {
+        $previousPage = $history[count($history) - 2];
 
-          $previousPage = $history[count($history) - 2];
-
-        } else {
-
-          $previousPage = "recipeMain.php";
-
-        }
-
-        header("Location: $previousPage");
-
-      
       } else {
 
-        header("Location: recipeMain.php");
+        $previousPage = "recipeMain.php";
 
-      } 
+      }
+
+      header("Location: $previousPage");
 
 		}
 	} else {

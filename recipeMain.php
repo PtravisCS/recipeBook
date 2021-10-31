@@ -4,6 +4,28 @@
 		$query = $_POST['query'];
   }
 
+  session_start();
+
+  echo "" . !empty($_SESSION['history']) . "<br/>";
+  if ( !empty($_SESSION['history'])) {
+
+    $history = $_SESSION['history'];
+    print_r($history);
+
+    array_push($history, 'recipeMain.php');
+
+    $_SESSION['history'] = $history; 
+
+  } else {
+
+    $_SESSION['history'] = array('recipeMain.php');
+    $history = $_SESSION['history'];
+    print_r($history);
+
+  }
+
+  
+
 ?>
 
 <html>

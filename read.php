@@ -2,17 +2,34 @@
 
   session_start();
 
-  //Create session array storing current session history.
+  echo "" . !empty($_SESSION['history']) . "<br/>";
+  if ( !empty($_SESSION['history'])) {
 
-  if (isset($_SESSION['history'])) {
+    if ( !empty($_GET['id'])) {
+      $id = $_REQUEST['id'];
 
-    $history = $_SESSION['history'];
+      $history = $_SESSION['history'];
+      print_r($history);
 
-    array_push($history, 'read.php');
+      array_push($history, "read.php?id=$id");
+
+      $_SESSION['history'] = $history;
+    } else {
+
+      $history = $_SESSION['history'];
+      print_r($history);
+
+      array_push($history, 'recipeMain.php');
+
+      $_SESSION['history'] = $history; 
+
+    }
 
   } else {
 
-    $_SESSION['history'] = array('read.php');
+    $_SESSION['history'] = array('recipeMain.php');
+    $history = $_SESSION['history'];
+    print_r($history);
 
   }
 
